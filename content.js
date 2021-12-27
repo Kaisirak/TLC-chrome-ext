@@ -15,16 +15,31 @@ function checkTime(i) {
   return i;
 }
 
-var items = document.getElementByClassName('mainContent');
-const newClockDiv = document.createElement("div");
+var items;
 
-newClockDiv.setAttribute("id", "tlc-clockdiv");
+function waitForMainContent() {
+  items = document.getElementsByClassName('mainContent');
+  
+  if (items !== null && items !== undefined && items[0] !== undefined && items[0] !== null && items.length > 0) {
+    const newClockDiv = document.createElement("div");
 
-items[0].appendChild(newClockDiv);
-startTime();
+    newClockDiv.setAttribute("id", "tlc-clockdiv");
+    items[0].appendChild(newClockDiv);
+    startTime();
+  } else {
+    setTimeout(waitForMainContent, 500);
+  }
+}
 
+waitForMainContent();
+
+
+
+
+/* // some other action to take
 for (var i = 0, l = items.length; i < l; i++) {
   items[i].addEventListener("click", function(e) {
     alert('Action to take here');
   }, false);
 }
+*/
