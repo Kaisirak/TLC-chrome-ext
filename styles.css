@@ -1,0 +1,13 @@
+body {
+  background: #f1f1ff !important;
+}
+ 
+button {
+  border-color:  #ff46be !important;
+}
+
+.tdLinkContent > .inforHyperlink {
+  padding:  8px 8px;
+  border:  5px solid #2d549d;
+  background-color:  #0e3b8f;
+}
